@@ -28,22 +28,22 @@ export default function Page() {
   const time = useCountdown();
 
   return (
-    <main className="fixed inset-0 flex flex-col items-center justify-center gap-6 overflow-y-auto bg-[#ffb9a9] px-6 py-8 text-center text-[#3d3929]">
+    <main className="fixed inset-0 flex flex-col items-center justify-center gap-6 overflow-y-auto bg-background px-6 py-8 text-center text-foreground">
       <Image
         src="/placeholder/maintenance.png"
         alt="Maintenance in progress"
         width={1910}
         height={931}
         priority
-        className="h-auto w-full max-w-3xl"
+        className="h-auto w-full max-w-3xl rounded-card border border-border shadow-sm"
       />
 
       <h1 className="max-w-3xl font-[family-name:var(--font-instrument-serif)] text-5xl leading-[1.05] sm:text-6xl">
         We&apos;re tuning things up{" "}
-        <span className="italic opacity-60">right now.</span>
+        <span className="italic text-foreground/60">right now.</span>
       </h1>
 
-      <p className="max-w-md text-base opacity-80 sm:text-lg">
+      <p className="max-w-md text-base text-muted sm:text-lg">
         Nothing is lost. We&apos;re making Colbe better and we&apos;ll be back
         tomorrow at 4:00 PM CAT.
       </p>
