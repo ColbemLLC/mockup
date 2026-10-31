@@ -28,39 +28,57 @@ export default function Page() {
   const time = useCountdown();
 
   return (
-    <main className="fixed inset-0 flex flex-col items-center justify-center gap-6 overflow-y-auto bg-background px-6 py-8 text-center text-foreground">
-      <Image
-        src="/placeholder/maintenance.png"
-        alt="Maintenance in progress"
-        width={1910}
-        height={931}
-        priority
-        className="h-auto w-full max-w-3xl rounded-card border border-border shadow-sm"
+    <div className="fixed inset-0 isolate overflow-hidden bg-[#FFFDF7] text-[#3d3929]">
+      {/* Honey ember background */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -inset-6 -z-10 blur-xl"
+      >
+        <div className="absolute inset-0 bg-[#FFFDF7]" />
+        <div className="absolute -top-[14%] -left-[6%] h-[70%] w-[70%] rounded-full bg-[#FBBF24] opacity-78 blur-3xl" />
+        <div className="absolute top-[8%] right-[-8%] h-[62%] w-[62%] rounded-full bg-[#F59E0B] opacity-70 blur-3xl" />
+        <div className="absolute bottom-[-22%] left-[12%] h-[66%] w-[66%] rounded-full bg-[#FB923C] opacity-58 blur-3xl" />
+        <div className="absolute right-[20%] bottom-[-10%] h-[56%] w-[56%] rounded-full bg-[#FECACA] opacity-68 blur-3xl" />
+      </div>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(circle_at_center,#78350F_1px,transparent_1px)] [background-size:4px_4px] opacity-[0.034]"
       />
 
-      <h1 className="max-w-3xl font-[family-name:var(--font-instrument-serif)] text-5xl leading-[1.05] sm:text-6xl">
-        We&apos;re tuning things up{" "}
-        <span className="italic text-foreground/60">right now.</span>
-      </h1>
+      <main className="flex h-full flex-col items-center justify-center gap-6 overflow-y-auto px-6 py-8 text-center">
+        <Image
+          src="/placeholder/maintenance.png"
+          alt="Maintenance in progress"
+          width={1910}
+          height={931}
+          priority
+          className="h-auto w-full max-w-3xl rounded-card border border-black/10 shadow-sm"
+        />
 
-      <p className="max-w-md text-base text-muted sm:text-lg">
-        Nothing is lost. We&apos;re making Colbe better and we&apos;ll be back
-        tomorrow at 4:00 PM CAT.
-      </p>
+        <h1 className="max-w-3xl font-[family-name:var(--font-instrument-serif)] text-5xl leading-[1.05] sm:text-6xl">
+          We&apos;re tuning things up{" "}
+          <span className="italic opacity-60">right now.</span>
+        </h1>
 
-      <div className="font-mono text-3xl tabular-nums tracking-wider">
-        {time}
-      </div>
+        <p className="max-w-md text-base opacity-75 sm:text-lg">
+          Nothing is lost. We&apos;re making Colbe better and we&apos;ll be back
+          tomorrow at 4:00 PM CAT.
+        </p>
 
-      <a
-        href="https://github.com/ColbemLLC"
-        target="_blank"
-        rel="noreferrer"
-        className="inline-flex items-center gap-2 rounded-nav bg-cta px-5 py-3 text-sm font-medium text-cta-foreground transition-opacity hover:opacity-90"
-      >
-        Follow updates
-        <ArrowUpRight size={16} weight="bold" />
-      </a>
-    </main>
+        <div className="font-mono text-3xl tabular-nums tracking-wider">
+          {time}
+        </div>
+
+        <a
+          href="https://github.com/ColbemLLC"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 rounded-nav border border-black/10 bg-black/5 px-5 py-3 text-sm font-medium backdrop-blur-sm transition-colors hover:bg-black/10"
+        >
+          Follow updates
+          <ArrowUpRight size={16} weight="bold" />
+        </a>
+      </main>
+    </div>
   );
 }
