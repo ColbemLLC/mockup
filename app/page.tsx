@@ -28,20 +28,18 @@ export default function Page() {
   const time = useCountdown();
 
   return (
-    <main className="fixed inset-0 flex flex-col items-center justify-center gap-8 bg-cta px-6 text-center text-cta-foreground">
+    <main className="fixed inset-0 flex flex-col items-center justify-center gap-6 overflow-y-auto bg-[#ffb9a9] px-6 py-8 text-center text-[#3d3929]">
       <Image
-        src="https://github.com/ColbemLLC.png"
-        alt="Colbe"
-        width={112}
-        height={112}
-        unoptimized
+        src="/placeholder/maintenance.png"
+        alt="Maintenance in progress"
+        width={1910}
+        height={931}
         priority
-        className="rounded-full ring-4 ring-cta-foreground/90"
+        className="h-auto w-full max-w-3xl"
       />
 
-      <h1 className="max-w-3xl font-[family-name:var(--font-instrument-serif)] text-5xl leading-[1.05] sm:text-7xl">
-        We&apos;re tuning things up
-        <br />
+      <h1 className="max-w-3xl font-[family-name:var(--font-instrument-serif)] text-5xl leading-[1.05] sm:text-6xl">
+        We&apos;re tuning things up{" "}
         <span className="italic opacity-60">right now.</span>
       </h1>
 
@@ -58,7 +56,7 @@ export default function Page() {
         href="https://github.com/ColbemLLC"
         target="_blank"
         rel="noreferrer"
-        className="inline-flex items-center gap-2 rounded-nav bg-cta-foreground px-5 py-3 text-sm font-medium text-cta transition-opacity hover:opacity-90"
+        className="inline-flex items-center gap-2 rounded-nav bg-cta px-5 py-3 text-sm font-medium text-cta-foreground transition-opacity hover:opacity-90"
       >
         Follow updates
         <ArrowUpRight size={16} weight="bold" />
