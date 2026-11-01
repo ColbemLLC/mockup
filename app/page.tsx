@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ArrowUpRight } from "@phosphor-icons/react";
 
-// Tomorrow, Sun 1 Nov 2026, 4:00 PM CAT (UTC+2)
+// Sun 1 Nov 2026, 4:00 PM CAT (UTC+2)
 const RELEASE = new Date("2026-11-01T16:00:00+02:00").getTime();
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -19,13 +19,16 @@ function useCountdown() {
     return () => clearInterval(id);
   }, []);
 
-  if (left === null) return "--:--:--";
+  if (left === null) return { time: "--:--:--", done: false };
   const s = Math.floor(left / 1000);
-  return `${pad(Math.floor(s / 3600))}:${pad(Math.floor((s % 3600) / 60))}:${pad(s % 60)}`;
+  return {
+    time: `${pad(Math.floor(s / 3600))}:${pad(Math.floor((s % 3600) / 60))}:${pad(s % 60)}`,
+    done: left === 0,
+  };
 }
 
 export default function Page() {
-  const time = useCountdown();
+  const { time, done } = useCountdown();
 
   return (
     <div className="fixed inset-0 isolate overflow-hidden bg-[#FFFDF7] text-[#3d3929]">
@@ -60,14 +63,21 @@ export default function Page() {
           <span className="italic opacity-60">right now.</span>
         </h1>
 
-        <p className="max-w-md text-base opacity-75 sm:text-lg">
-          Nothing is lost. We&apos;re making Colbe better and we&apos;ll be back
-          tomorrow at 4:00 PM CAT.
-        </p>
-
-        <div className="font-mono text-3xl tabular-nums tracking-wider">
-          {time}
-        </div>
+        {done ? (
+          <p className="max-w-md text-xl font-medium sm:text-2xl">
+            Please wait! The launch will begin shortly
+          </p>
+        ) : (
+          <>
+            <p className="max-w-md text-base opacity-75 sm:text-lg">
+              Nothing is lost. We&apos;re making Colbe better and we&apos;ll be
+              back today at 4:00 PM CAT.
+            </p>
+            <div className="font-mono text-3xl tabular-nums tracking-wider">
+              {time}
+            </div>
+          </>
+        )}
 
         <a
           href="https://github.com/ColbemLLC"
