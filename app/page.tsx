@@ -52,10 +52,11 @@ export default function Page() {
       <main className="flex h-full flex-col items-center justify-center gap-6 overflow-y-auto px-6 py-8 text-center">
         <div className="flex items-center gap-3">
           <Image
-            src="/logo.png"
+            src="https://github.com/ColbemLLC.png"
             alt="Colbe"
             width={40}
             height={40}
+            unoptimized
             priority
             className="rounded-nav"
           />
@@ -65,12 +66,13 @@ export default function Page() {
         </div>
 
         <Image
-          src="/placeholder/maintenance.png"
+          src="/placeholder/maintenance.svg"
           alt="Maintenance in progress"
-          width={1910}
-          height={931}
+          width={720}
+          height={606}
           priority
-          className="h-auto w-full max-w-3xl rounded-card border border-border shadow-sm"
+          unoptimized
+          className="h-auto w-48 sm:w-56"
         />
 
         <div className="flex max-w-3xl flex-col items-center gap-4">
