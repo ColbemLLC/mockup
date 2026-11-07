@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { ArrowUpRight } from "@phosphor-icons/react";
+import { ArrowClockwise, ArrowUpRight } from "@phosphor-icons/react";
 
 // Mon 30 Nov 2026, 4:00 PM CAT (UTC+2)
 const RELEASE = new Date("2026-11-30T16:00:00+02:00").getTime();
@@ -52,11 +52,10 @@ export default function Page() {
       <main className="flex h-full flex-col items-center justify-center gap-6 overflow-y-auto px-6 py-8 text-center">
         <div className="flex items-center gap-3">
           <Image
-            src="https://github.com/ColbemLLC.png"
+            src="/logo.png"
             alt="Colbe"
             width={40}
             height={40}
-            unoptimized
             priority
             className="rounded-nav"
           />
@@ -74,36 +73,48 @@ export default function Page() {
           className="h-auto w-full max-w-3xl rounded-card border border-border shadow-sm"
         />
 
-        <h1 className="max-w-3xl font-[family-name:var(--font-instrument-serif)] text-5xl leading-[1.05] sm:text-6xl">
-          We&apos;re tuning things up{" "}
-          <span className="italic opacity-60">right now.</span>
-        </h1>
+        <div className="flex max-w-3xl flex-col items-center gap-4">
+          <h1 className="font-[family-name:var(--font-instrument-serif)] text-5xl leading-[1.05] sm:text-6xl">
+            We&apos;re tuning things up{" "}
+            <span className="italic opacity-60">right now.</span>
+          </h1>
 
-        {done ? (
-          <p className="max-w-md text-xl font-medium sm:text-2xl">
-            Please wait! The launch will begin shortly
-          </p>
-        ) : (
-          <>
-            <p className="max-w-md text-base opacity-75 sm:text-lg">
-              Nothing is lost. We&apos;re making Colbe better and we&apos;ll be
-              back on November 30 at 4:00 PM CAT.
+          {done ? (
+            <p className="max-w-md text-xl font-medium sm:text-2xl">
+              Please wait! The launch will begin shortly
             </p>
-            <div className="font-mono text-3xl tabular-nums tracking-wider">
-              {time}
-            </div>
-          </>
-        )}
+          ) : (
+            <>
+              <p className="max-w-md text-base opacity-75 sm:text-lg">
+                Nothing is lost. We&apos;re making Colbe better and we&apos;ll
+                be back on November 30 at 4:00 PM CAT.
+              </p>
+              <div className="font-mono text-3xl tabular-nums tracking-wider">
+                {time}
+              </div>
+            </>
+          )}
+        </div>
 
-        <a
-          href="https://github.com/ColbemLLC"
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-nav border border-border bg-foreground/5 px-5 py-3 text-sm font-medium backdrop-blur-sm transition-colors hover:bg-foreground/10"
-        >
-          Follow updates
-          <ArrowUpRight size={16} weight="bold" />
-        </a>
+        <div className="flex flex-row flex-wrap items-center justify-center gap-2">
+          <a
+            href="https://status.colbe.cc"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-nav border border-foreground/25 bg-foreground/10 px-5 py-3 text-sm font-medium backdrop-blur-md transition-colors hover:bg-foreground/15"
+          >
+            Check status
+            <ArrowUpRight size={16} weight="bold" />
+          </a>
+          <button
+            type="button"
+            onClick={() => window.location.reload()}
+            className="inline-flex items-center gap-2 rounded-nav bg-cta px-5 py-3 text-sm font-medium text-cta-foreground transition-opacity hover:opacity-90"
+          >
+            <ArrowClockwise size={16} weight="bold" />
+            Refresh page
+          </button>
+        </div>
       </main>
     </div>
   );
