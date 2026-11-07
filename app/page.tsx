@@ -50,6 +50,21 @@ export default function Page() {
       />
 
       <main className="flex h-full flex-col items-center justify-center gap-6 overflow-y-auto px-6 py-8 text-center">
+        <div className="flex items-center gap-3">
+          <Image
+            src="https://github.com/ColbemLLC.png"
+            alt="Colbe"
+            width={40}
+            height={40}
+            unoptimized
+            priority
+            className="rounded-nav"
+          />
+          <span className="font-[family-name:var(--font-instrument-serif)] text-3xl">
+            Colbe
+          </span>
+        </div>
+
         <Image
           src="/placeholder/maintenance.png"
           alt="Maintenance in progress"
